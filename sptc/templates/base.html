@@ -1,0 +1,171 @@
+{% load static wagtailcore_tags wagtailuserbar wagtailimages_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>
+        {% block title %}
+            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+        {% endblock %}
+        {% block title_suffix %}
+            {% wagtail_site as current_site %}
+            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+        {% endblock %}
+    </title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    {# Force all links in the live preview panel to be opened in a new tab #}
+    {% if request.in_preview_panel %}
+        <base target="_blank">
+    {% endif %}
+
+    {# Global stylesheets #}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+            integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css"/>
+
+    <link rel="stylesheet" href="{% static 'custom/css/sptc.css' %}">
+{#    <link rel="stylesheet" href="{% static 'custom/css/custom.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'custom/css/backend.css' %}">#}
+    {% block extra_css %}
+        {# Override this in templates to add extra stylesheets #}
+    {% endblock %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+{% wagtailuserbar %}
+
+<!-- Header start -->
+<header class="cms-header py-0 md:py-5">
+    <div class="cms-container mx-auto">
+        <!-- <div
+            class="flex flex-wrap items-center justify-between md:grid md:grid-cols-4 gap-4"
+        >
+
+        </div> -->
+
+        <nav class="bg-white border-gray-200 sm:px-4 md:pt-0 pt-2 py-0 rounded">
+            <div class="container lg:flex-nowrap md:gap-4 md:flex-nowrap flex-wrap flex md:px-0 px-2 justify-between items-center mx-auto">
+                <a href="/" class="cms-brand-link">
+                    {% if page_info.header_icon %}
+                        {% image page_info.header_icon original as tmp_photo %}
+                        <img src="{{ tmp_photo.url }}" class="cms-brand-logo" alt="CMS">
+                    {% else %}
+                        <img src="{% static 'custom/images/westlink-logo.png' %}" class="cms-brand-logo" alt="CMS">
+                    {% endif %}
+                </a>
+                <button data-collapse-toggle="mobile-menu" id="mobile-nav-togglicon" type="button"
+                        class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden "
+                        aria-controls="mobile-menu" aria-expanded="false">
+                    <!-- <span class="sr-only">Open main menu</span> -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                    <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <div class="md:flex md:gap-10 hidden w-full md:block md:w-auto" id="mobile-menu">
+                    <ul id="headerLists"
+                        class=" text-center font-bold md:bg-white items-center mobile-nav-bg cms-navbar-nav flex flex-col md:flex-row gap-2 md:gap-5"
+                    >
+                        {#                        {% main_menu template="menus/custom_main_menu.html" add_sub_menus_inline=True %}#}
+                        <li class=" md:border-none md:py-0 border-b py-2 "><a href="index.html">Home</a></li>
+                        <li class="md:border-none md:py-0 border-b py-2 cms-dropdown--parent relative">
+                            <a href="#!"
+                            >About
+                                <i class="mdi mdi-chevron-down hidden md:inline-block"></i
+                                ></a>
+                            <ul class="cms-dropdown--menu hidden absolute flex column wrap">
+                                <li><a href="#!">Dropdown Item</a></li>
+                            </ul>
+                        </li>
+                        <li class="md:border-none md:py-0 border-b py-2 cms-dropdown--parent relative">
+                            <a href="#!"
+                            >Blogs & Events
+                                <i class="mdi mdi-chevron-down hidden md:inline-block"></i
+                                ></a>
+                            <ul class="cms-dropdown--menu hidden absolute flex column wrap">
+                                <li><a href="#!">Dropdown Item</a></li>
+                            </ul>
+                        </li>
+                        <li class="md:border-none md:py-0 border-b py-2 cms-dropdown--parent relative">
+                            <a href="#!"
+                            >Gallery
+                                <i class="mdi mdi-chevron-down hidden md:inline-block"></i
+                                ></a>
+                            <ul class="cms-dropdown--menu hidden absolute flex column wrap">
+                                <li><a href="#!">Dropdown Item</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+        </nav>
+    </div>
+</header>
+<!-- Header end -->
+{% block content %}{% endblock %}
+
+
+<!--Footer-->
+<footer class=" cms-footer-bg ">
+    <div class="footer-top-content px-6">
+        <div class="footer-detail-div">
+            <div class="footer-heading">Quick Links</div>
+            <div class="footer-text">
+                <ul>
+                    {#            {% flat_menu 'quick_link' template="menus/quick_link_menu.html" add_sub_menus_inline=True %}#}
+                    <li>About</li>
+                    <li>Blogs & Events</li>
+                    <li>Gallery</li>
+                </ul>
+                {#                        </div>#}
+            </div>
+            <div class="footer-detail-div">
+                {#            {% flat_menu 'help' template="menus/quick_link_menu.html" add_sub_menus_inline=True %}#}
+                <div class="footer-heading">Help</div>
+                <div class="footer-text">
+                    <ul>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+                <div class="footer-detail-div">
+                    <div class="footer-heading">Connect with us</div>
+                    <div class="footer-text">
+                        {#                {% if page_info.facebook %}#}
+                        <a target="_blank" href="#"><i class="fab fa-facebook"
+                                                       aria-hidden="true"></i></a>
+                        {#                {% endif %}#}
+                        {#                {% if page_info.tiktok %}#}
+                        <a target="_blank" href="#"><i class="fab fa-tiktok" aria-hidden="true"></i>
+                        </a>
+                        {#                {% endif %}#}
+                        {#                {% if page_info.instagram %}#}
+                        <a target="_blank" href="#"><i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        {#                {% endif %}#}
+                    </div>
+                </div>
+            </div>
+</footer>
+{# Global javascript #}
+<script type="text/javascript" src="{% static 'js/sptc.js' %}"></script>
+
+{% block extra_js %}
+    {# Override this in templates to add extra javascript #}
+{% endblock %}
+</body>
+</html>

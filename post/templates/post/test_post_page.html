@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<article>
+    {% for block in page.body %}
+        {% if block.block_type == 'person' %}
+            <div class="person">
+                {% image block.value.photo width-400 %}
+                <h2>{{ block.value.first_name }} {{ block.value.surname }}</h2>
+                {{ block.value.biography }}
+            </div>
+        {% endif %}
+        {% if block.block_type == 'heading' %}
+            <h2>{{ block.value.heading }}</h2>
+        {% endif %}
+        {% if block.block_type == 'image' %}
+            <h2>Image1</h2>
+            {% image block.value.photo width-400 %}
+            <h2>Image1</h2>
+
+            {% image block.value.photo original as tmp_photo %}
+            <img class="w-full border-2" src="{{ tmp_photo.url }}" alt="blog"/>
+        {% endif %}
+        {% if block.block_type == 'paragraph' %}
+            <h2>{{ block.value.paragraph }}</h2>
+        {% endif %}
+
+        {% if block.block_type == 'paragraph' %}
+            <h2>{{ block.value.paragraph }}</h2>
+        {% endif %}
+    {% endfor %}
+</article>
+{% endblock %}

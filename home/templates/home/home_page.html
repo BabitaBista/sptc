@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock extra_css %}
+
+{% block content %}
+    {% for block in page.banner %}
+        {% if block.block_type == 'banner' %}
+            {% if block.value.image %}
+                {% image block.value.image original as tmp_photo %}
+                <section class="cms-hero-banner home-banner-contents px-6 py-16"
+                         style="background-image: url({{ tmp_photo.url }}); background-repeat: no-repeat; background-size: cover;">
+            {% else %}
+                <section class="cms-hero-banner px-6 py-16"
+                         style="background-image: url(https://images.unsplash.com/photo-1626287935075-3275d2d9025e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80); background-repeat: no-repeat; background-size: cover;">
+            {% endif %}
+        <div class="cms-container md:mb-20 mx-auto h-full justify-center cms-banner-contents ">
+            <h1 class="cms-main-title text-white">{{ block.value.title|safe }}</h1>
+            <div><span class="sub-text text-white">{{ block.value.text|safe }}
+                </span></div>
+            {% if block.value.button %}<a href="{% pageurl block.value.button %}"
+                                          class="cms-btn  mb-10 w-fit hover:scale-110 focus:outline-none cms-btn--rounded cms-btn--secondary uppercase font-bold">{{ block.value.button.title|safe }}</a>{% endif %}
+        </div>
+        </section>
+        {% endif %}
+    {% endfor %}
+{% if about %}
+    <div class="container">
+        <h2>About us</h2>
+        <p>{{ about.first.about_company|default_if_none:'Description' }}</p>
+    </div>
+{% endif %}
+<!-- Testimonial Block start -->
+{% if self.testimonial_text %}
+    {% if request.tenant.schema_name == 'smt_global' %}
+        <section class="cms-feature py-8 testimonial-bg">
+            <div class="testimonial-div cms-container mx-auto md:px-0 px-12">
+                <div class="cms-section-title text-center cms-text-primary--source">
+                    <span>{{ self.testimonial_text }}</span>
+                </div>
+
+                <div class="testimonial-slider">
+                    {% for block in page.testimonial %}
+                        {% if block.block_type == 'testimonial' %}
+                            <div>
+                                <div class="testimonial-grid">
+                                    <div class="md:mx-0 mx-auto testimonial-client-dp w-100">
+                                        {% if  block.value.image %}
+                                            {% image block.value.image original as tmp_photo %}
+                                            <img
+                                                    class="w-full h-full rounded-full"
+                                                    src="{{ tmp_photo.url }}" style="object-fit: cover;"
+                                            />
+                                        {% else %}
+                                            <img
+                                                    class="w-full h-full rounded-full"
+                                                    src="{% static 'custom/image/blog.png' %}"
+                                            />
+                                        {% endif %}
+                                    </div>
+                                    <div class="testimonial-para-grid">
+                                        <div class="testimonial-paragraph">
+                                            <p class="text-xl">
+                                                {{ block.value.message|safe }}
+                                            </p>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="text-xl font-bold">{{ block.value.name|safe }}</span>
+                                            {% if  block.value.qualification %}
+                                                <span class="text-xl">{{ block.value.qualification|safe }}</span>{% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% else %}
+        <section class="cms-feature py-8 testimonial-bg">
+            <div class="testimonial-div cms-container mx-auto md:px-0 px-12">
+                <div class="cms-section-title text-center cms-text-primary--source">
+                    <span>{{ self.testimonial_text }}</span>
+                </div>
+
+                <div class="testimonial-slider">
+                    {% for block in page.testimonial %}
+                        {% if block.block_type == 'testimonial' %}
+                            <div>
+                                <div class="testimonial-grid">
+                                    <div class="md:mx-0 mx-auto testimonial-client-dp w-100">
+                                        {% if  block.value.image %}
+                                            {% image block.value.image original as tmp_photo %}
+                                            <img
+                                                    class="w-full h-full rounded-full"
+                                                    src="{{ tmp_photo.url }}" style="object-fit: cover; width: auto;"
+                                            />
+                                        {% else %}
+                                            <img
+                                                    class="w-full h-full rounded-full"
+                                                    src="{% static 'custom/image/blog.png' %}"
+                                            />
+                                        {% endif %}
+                                    </div>
+                                    <div class="testimonial-para-grid">
+                                        <div class="testimonial-paragraph">
+                                            <p class="text-xl">
+                                                {{ block.value.message|safe }}
+                                            </p>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="text-xl font-bold">{{ block.value.name|safe }}</span>
+                                            {% if  block.value.qualification %}
+                                                <span class="text-xl">{{ block.value.qualification|safe }}</span>{% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endif %}
+<!-- Testimonial Block start -->
+
+{% endblock %}

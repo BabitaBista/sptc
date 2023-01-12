@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock extra_css %}
+
+{% block content %}
+    <!-- Banner start -->
+    {% for block in page.banner %}
+        {% if block.block_type == 'banner' %}
+            {% if block.value.image %}
+                {% image block.value.image original as tmp_photo %}
+                <section class="cms-hero-banner home-banner-contents px-6 py-16"
+                         style="background-image: url({{ tmp_photo.url }}); background-repeat: no-repeat; background-size: cover;">
+            {% else %}
+                <section class="cms-hero-banner px-6 py-16"
+                         style="background-image: url(https://images.unsplash.com/photo-1626287935075-3275d2d9025e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80); background-repeat: no-repeat; background-size: cover;">
+            {% endif %}
+        <div class="cms-container md:mb-20 mx-auto h-full justify-center cms-banner-contents ">
+            <h1 class="cms-main-title text-white">{{ block.value.title|safe }}</h1>
+            <div><span class="sub-text text-white">{{ block.value.text|safe }}
+                </span></div>
+            {% if block.value.button %}<a href="{% pageurl block.value.button %}"
+                                          class="cms-btn  mb-10 w-fit hover:scale-110 focus:outline-none cms-btn--rounded cms-btn--secondary uppercase font-bold">{{ block.value.button.title|safe }}</a>{% endif %}
+        </div>
+        </section>
+        {% endif %}
+    {% endfor %}
+<!-- Banner end -->
+
+<div class="container">
+    <h3>About us</h3>
+</div>
+
+{% endblock %}
