@@ -5,6 +5,7 @@ from wagtail.models import Page
 from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel, StreamFieldPanel
 
+from event.models import EventModel
 from home.blocks import BannerBlock, TestimonialBlock, TitleAndRichTextBlock, MissionVisionTextBlock, MessageBlock
 
 
@@ -25,5 +26,6 @@ class HomePage(Page):
         context = super().get_context(request)
         from about.models import AboutPage
         context['about'] = AboutPage.objects.all()
+        context['popular_events'] = EventModel.objects.filter(is_popular=True)[:2]
         return context
 

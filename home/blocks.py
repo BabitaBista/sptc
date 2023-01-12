@@ -46,6 +46,16 @@ class MessageBlock(blocks.StructBlock):
         icon = 'edit'
         label = "Message Text"
 
+
+class TitleAndTextBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
+    text = blocks.TextBlock()
+
+    class Meta:
+        icon = 'edit'
+        label = "Title and text"
+
+
 class TestimonialBlock(blocks.StructBlock):
     name = blocks.CharBlock(required=True)
     qualification = blocks.CharBlock(required=False)
