@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+{% load static i18n %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <title>Surekha Professional Training Center</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/surekha_logo.jpg' %} ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600&display=swap" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="topnav" id="myTopnav">
+    <nav class="navbar navbar-expand-lg">
+        <a class="logo" href="#myTopnav"><img class="logo"
+                                                      src="{% static 'img/surekha_logo.jpg' %} "></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item px-lg-3 active">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link" href="#service">Service</a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link" href="#about-us">About</a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link" href="#contact-us">Contact Us</a>
+                </li>
+                <!--                    <li class="nav-item px-lg-3 store-icon">-->
+                <!--                        <button class="btn"><a  class="store-link" href="https://play.google.com/store/apps/details?id=com.ridenp"><img src="{% static 'img/playstore-icon.png' %}" width="24px"></a></button>-->
+                <!--                        <button class="btn"> <a  class="store-link" href="https://apps.apple.com/in/app/esawari/id1658480319"><img src="{% static 'img/ri_apple-fill.png' %}" width="24px"></a></button>-->
+                <!--                    </li>-->
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="banner11" id="home">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+{#            <div class="carousel-item active">#}
+{#                <img src="{% static 'img/sptc-child3.jpg' %}" class="d-block w-100" alt="...">#}
+{#            </div>#}
+            <div class="carousel-item active">
+                <img src="{% static 'img/sptc-melmilap-group.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/sptc-child2.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    {#        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">#}
+    {#            <div class="carousel-indicators">#}
+    {#    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>#}
+    {#    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>#}
+    {#    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>#}
+    {#  </div>#}
+    {#  <div class="carousel-inner">#}
+    {#    <div class="carousel-item active">#}
+    {#      <img src="{% static 'img/sptc-child.jpg' %}" class="d-block w-100" alt="...">#}
+    {#    </div>#}
+    {#    <div class="carousel-item">#}
+    {#      <img src="{% static 'img/sptc-melmilap-group.jpg' %}" class="d-block w-100" alt="...">#}
+    {#    </div>#}
+    {#    <div class="carousel-item">#}
+    {#      <img src="{% static 'img/sptc-child2.jpg' %}" class="d-block w-100" alt="...">#}
+    {#    </div>#}
+    {#  </div>#}
+    {#  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">#}
+    {#    <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+    {#    <span class="visually-hidden">Previous</span>#}
+    {#  </button>#}
+    {#  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">#}
+    {#    <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+    {#    <span class="visually-hidden">Next</span>#}
+    {#  </button>#}
+    {#</div>#}
+    {#        <div class="description">#}
+    {#            <h1>Download app,#}
+    {#                Start drive, Earn#}
+    {#                money!</h1>#}
+    {#            <p> Download eSawari driver app from playstore, create account use your car and drive by yourself. Get ride and earn more money</p>#}
+    {#            <div class="store-btn">#}
+    {#                <a href="https://apps.apple.com/in/app/esawari/id1658480319"><img src="img/google-play.png"></img></a>#}
+    {#                <a href="https://apps.apple.com/in/app/esawari/id1658480319"><img src="img/app-play.png"></img></a>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="image">#}
+    {#            <img src="img/map.png"></img>#}
+    {#        </div>#}
+</div>
+
+<div class="about-us" id="about-us">
+    <div class="about-description">
+        <h1>About Us</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. A lacus vestibulum sed arcu non. Enim nulla aliquet porttitor lacus luctus accumsan tortor
+            posuere ac. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Libero id faucibus nisl tincidunt
+            eget nullam non nisi. Vitae ultricies leo integer malesuada. Vel quam elementum pulvinar etiam non quam. Leo
+            duis ut diam quam nulla porttitor massa id neque. Malesuada bibendum arcu vitae elementum curabitur vitae.
+            Porta nibh venenatis cras sed felis eget velit aliquet. Massa enim nec dui nunc.
+        <p>
+            Neque gravida in fermentum et sollicitudin ac orci phasellus. Volutpat lacus laoreet non curabitur gravida.
+            Curabitur gravida arcu ac tortor dignissim. Sed augue lacus viverra vitae congue eu. Facilisis gravida neque
+            convallis a. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Blandit aliquam etiam
+            erat velit scelerisque in. Proin libero nunc consequat interdum varius sit. Maecenas sed enim ut sem
+        </p>
+        </p>
+        <div class="learn-more-btn">
+            <button class="button">Learn More</button>
+        </div>
+    </div>
+    <div class="mockup-ui">
+        <img src="img/mobile-ui.png"></img>
+    </div>
+</div>
+
+<div class="testimonial" id="service">
+    <div class="steps-heading">
+        <h1>Read <span></span> What Others Have to Say</h1>
+        <p> Tristique nulla aliquet enim tortor at auctor. Vulputate eu scelerisque felis imperdiet proin fermentum leo
+            vel. Nunc consequat interdum varius sit amet mattis vulputate enim nulla.</p>
+    </div>
+    <div class="steps-content">
+        <div class="step">
+            <img src="img/tap.png">
+            <span>1</span>
+            <div class="steps-subtext">
+                <h1>Sunita Sedai</h1>
+                <p>Nunc consequat interdum varius sit amet mattis vulputate enim nulla. </p>
+            </div>
+        </div>
+        <div class="step">
+            <img src="img/rider.png">
+            <span>2</span>
+            <div class="steps-subtext">
+                <h1>Rekha Dulal</h1>
+                <p>Nunc consequat interdum varius sit amet mattis vulputate enim nulla. </p>
+            </div>
+        </div>
+        <div class="step">
+            <img src="img/track.png">
+            <span>3</span>
+            <div class="steps-subtext">
+                <h1>Rekha Dulal</h1>
+                <p>Nunc consequat interdum varius sit amet mattis vulputate enim nulla.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="location-contact" id="contact-us">
+    <div class="contact">
+        <div class="location">
+            <h1>Get in touch</h1>
+            <p>We would love to hear from you. Our friendly team is always here to chat.</p>
+            <div class="location-details">
+                <img src="img/mail-line.png">
+                <div>
+                    <span>Mail</span>
+                    <p>info@sptc.com</p>
+                </div>
+            </div>
+            <div class="location-details">
+                <img src="img/phone-line.png">
+                <div>
+                    <span>Phone</span>
+                    <p>+977 00-00000</p>
+                </div>
+            </div>
+            <div class="location-details">
+                <img src="img/map-pin.png">
+                <div>
+                    <span>Location</span>
+                    <p>Kathmandu, Nepal</p>
+                </div>
+            </div>
+        </div>
+        <div class="blob-2">
+            <img src="img/Ellipse 2.png" width="129px">
+        </div>
+        <div class="contact-us">
+            <h1>Contact Us Today</h1>
+            <form class="form-contact">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <div class="number">
+                        <label for="exampleInputPassword1">Phone</label>
+                        <span>Optional</span>
+                    </div>
+                    <input type="number" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="msg-btn">
+                    <a class="nav-link" href="#contact-us">
+                        <button class="button">Send Message</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="blob-3">
+            <img src="img/Ellipse 6.png" width="100px">
+        </div> -->
+    </div>
+</div>
+
+{#<div class="download-add">#}
+{#    <div class="add-description">#}
+{#        <div class="blob-4">#}
+{#            <img src="img/Ellipse 2.png" width="20px">#}
+{#        </div>#}
+{#        <div>#}
+{#            <h1>When it's you, safety comes first. Always.</h1>#}
+{#            <p> Ac ut consequat semper viverra nam libero justo laoreet sit. Praesent semper feugiat nibh sed pulvinar#}
+{#                proin gravida hendrerit. Consequat nisl vel pretium lectus quam id leo. Tristique nulla aliquet enim#}
+{#                tortor at auctor. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Nunc consequat#}
+{#                interdum varius sit amet mattis vulputate enim nulla.</div>#}
+{#        <div class="store-btn">#}
+{#            <a href="https://play.google.com/store/apps/details?id=com.ridenp"><img src="img/google-play.png"></img></a>#}
+{#            <a href="https://apps.apple.com/in/app/esawari/id1658480319"><img src="img/app-play.png"></img></a>#}
+{#        </div>#}
+{#        <div class="blob">#}
+{#            <img src="img/Ellipse 2.png" width="129px">#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="image">#}
+{#        <img src="img/download.png">#}
+{#    </div>#}
+{#</div>#}
+
+<div class="footer">
+    <div class="footer-body">
+        {#            <img src="{% static 'img/logo.png' %}">#}
+        <div class="page-links">
+            <a class="line" href="#home">Home</a>
+            <a class="line" href="#service">Service</a>
+            <a class="line" href="#about-us">About Us</a>
+            <a class="line" href="#contact-us">Contact Us</a>
+            <div class="social-media">
+                <img src="img/facebook.png">
+                <img src="img/instagram.png">
+            </div>
+        </div>
+
+    </div>
+    <span>Copyright© Reserved 2023. All rights reserved.</span>
+</div>
+<script>
+    $('.navbar-nav>li>a').on('click', function () {
+        $('.navbar-collapse').collapse('hide');
+    });
+</script>
+</body>
+</html>
